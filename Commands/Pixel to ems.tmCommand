@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+#
+# This script will do the necessary YUI calculations from px to ems
+#
+# The result is inserted as a snippet, so it’s
+# possible to tab through the place holders.
+
+# validate input
+input    = ENV[’TM_SELECTED_TEXT’].to_i;
+width    = input.to_f/13
+ie_width = width * 0.9759
+
+print “${1:width}:”+width.to_s+”em;*$1:”+ie_width.to_s+”em;$0″</string>
+	<key>fallbackInput</key>
+	<string>none</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^@p</string>
+	<key>name</key>
+	<string>Pixel to ems</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>scope</key>
+	<string>source.css</string>
+	<key>uuid</key>
+	<string>DED06190-1477-4993-ABB1-7661203225C1</string>
+</dict>
+</plist>

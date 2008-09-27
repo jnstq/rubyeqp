@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+require ENV["TM_BUNDLE_SUPPORT"] + "/lib/rdoc"
+require ENV["TM_BUNDLE_SUPPORT"] + "/lib/text_mate"
+
+
+search = TextMate.input("Search for method or class", ENV['TM_CURRENT_WORD'])
+if search
+  rdoc = RDoc.new
+  if rdoc.search(search, :contain).found?
+    STDOUT.write rdoc.to_html
+    TextMate.exit_show_html
+  else
+    STDOUT.write "No documentation for ‘#{search}’"
+    TextMate.exit_show_tool_tip
+  end
+end
+
+
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^~$ </string>
+	<key>name</key>
+	<string>Search Documentation</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.ruby, text.html.ruby</string>
+	<key>uuid</key>
+	<string>12788BE7-BE0A-414F-96F4-DB1E0274B26F</string>
+</dict>
+</plist>

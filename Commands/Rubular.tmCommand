@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+require 'cgi'
+
+command = &lt;&lt;EOS
+  &lt;meta
+    http-equiv="Refresh"
+    content="0;URL=http://rubular.com/?regex=__REGEX__"
+  /&gt;
+EOS
+
+if ENV["TM_SELECTED_TEXT"]
+  regex = ENV["TM_SELECTED_TEXT"]
+elsif ENV["TM_CURRENT_LINE"] &amp;&amp; match = /\/.+\/[a-z]*/.match(ENV["TM_CURRENT_LINE"])
+  regex = match.to_a[0]
+else
+  regex = ''
+end
+
+command.gsub!('__REGEX__', CGI.escape(regex))
+
+puts command</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>Rubular</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>BD237E74-B9C8-427B-B654-FF8B4FB43DA4</string>
+</dict>
+</plist>

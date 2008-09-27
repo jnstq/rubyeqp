@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>diff -u "$TM_FILEPATH" -</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>Diff against saved</string>
+	<key>output</key>
+	<string>openAsNewDocument</string>
+	<key>uuid</key>
+	<string>42A7142D-317F-4811-A216-0B3A8D3E5347</string>
+</dict>
+</plist>

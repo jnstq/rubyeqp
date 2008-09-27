@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+require ENV["TM_BUNDLE_SUPPORT"] + "/lib/google_did_you_mean"
+require ENV["TM_BUNDLE_SUPPORT"] + "/lib/text_mate"
+
+input = STDIN.read
+abbr = Google::DidYouMean.new
+abbr.check(input)
+
+if abbr.found? 
+  STDOUT.write(abbr.result)
+else
+  STDOUT.write(abbr.tool_tip)
+  TextMate.exit_show_tool_tip
+end</string>
+	<key>fallbackInput</key>
+	<string>none</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^~@g</string>
+	<key>name</key>
+	<string>Google - Did you mean</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>uuid</key>
+	<string>64AC6081-AE5B-4156-A633-1665E77E902C</string>
+</dict>
+</plist>

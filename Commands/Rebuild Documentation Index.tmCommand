@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+require ENV["TM_BUNDLE_SUPPORT"] + "/lib/rdoc"
+require ENV["TM_BUNDLE_SUPPORT"] + "/lib/text_mate"
+
+rdoc = RDoc.new
+rdoc.generate_index
+rdoc.save
+TextMate.exit_show_tool_tip</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Rebuild Documentation Index</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>323FD3D8-43B3-4D07-9C4C-3EF6D14CE681</string>
+</dict>
+</plist>
