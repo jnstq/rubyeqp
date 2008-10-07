@@ -13,4 +13,7 @@ describe TranslateHelper do
   it "should have instance method for locale path" do
     TranslateHelper.new(:'sv-SE').send(:locale_path).should eql(TranslateHelper.locale_path)    
   end
+  it "should lookup key for given translation" do
+    TranslateHelper.keys_for('Hej').should eql(['en-US.txt.hello'.split('.')])
+  end
 end
