@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>class ${1:Model}
+end
+
+if __FILE__ == \$PROGRAM_NAME
+   require "rubygems" 
+   require "spec" 
+   describe $1 do
+     before(:each) do
+       @${2:model} = $1.new
+     end
+     it "should ${3:description}" do
+       $4
+     end
+   end 
+end </string>
+	<key>name</key>
+	<string>Embedded rspec</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>emrs</string>
+	<key>uuid</key>
+	<string>1DA14361-3750-47D7-8F4A-A14D83FAFF24</string>
+</dict>
+</plist>
