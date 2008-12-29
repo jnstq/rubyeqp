@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>ActiveRecord::Base.establish_connection(:adapter =&gt; 'sqlite3', :database =&gt; ':memory:')
+ActiveRecord::Migration.verbose = false
+
+ActiveRecord::Schema.define(:version =&gt; 0) do
+  create_table :updaters, :force =&gt; true do |t|
+  end
+end</string>
+	<key>name</key>
+	<string>ActiveRecord test database</string>
+	<key>tabTrigger</key>
+	<string>testdb</string>
+	<key>uuid</key>
+	<string>39C61688-1F9A-43AF-A6B9-07D970CDD996</string>
+</dict>
+</plist>
