@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("${1:username}:${2:password}")</string>
+	<key>name</key>
+	<string>Basic Authorization Header</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>basic</string>
+	<key>uuid</key>
+	<string>60E7DAA1-760E-4941-98D7-27D20BB90423</string>
+</dict>
+</plist>
