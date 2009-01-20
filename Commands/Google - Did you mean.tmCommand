@@ -24,7 +24,7 @@ end</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>^~@g</string>
+	<string>^@g</string>
 	<key>name</key>
 	<string>Google - Did you mean</string>
 	<key>output</key>
