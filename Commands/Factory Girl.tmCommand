@@ -34,7 +34,7 @@ end
 	<key>input</key>
 	<string>selection</string>
 	<key>name</key>
-	<string>Factory Girl Skeleton for model</string>
+	<string>Factory Girl Skeleton for model under cursor</string>
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>uuid</key>
