@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+require ENV["TM_BUNDLE_SUPPORT"] + "/vendor/factory_girl_generate/lib/factory_girl/generate"
+require ENV["TM_BUNDLE_SUPPORT"] + "/lib/text_mate"
+
+project = ENV['TM_PROJECT_DIRECTORY']
+word = ENV['TM_CURRENT_WORD']
+
+#require "#{project}/config/boot"
+require "#{project}/config/environment"
+
+if word.blank?
+  STDOUT &lt;&lt; "Place cursor on class name (or variation) to show its schema"
+  TextMate.exit_show_tool_tip
+end
+
+klass = word.camelcase.constantize rescue nil
+if klass and klass &lt; ActiveRecord::Base
+  STDOUT &lt;&lt; FactoryGirl::Generate.render_factory_for(klass)
+else
+  STDOUT &lt;&lt; "'#{word}' was not recognised as a class"
+  TextMate.exit_show_tool_tip
+end
+
+</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Factory Girl Skeleton for model</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>uuid</key>
+	<string>04BE61FD-8019-4F5C-9512-5AFB0273DD67</string>
+</dict>
+</plist>

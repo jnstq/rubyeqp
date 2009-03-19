@@ -1,0 +1,11 @@
+class Factory
+  class Generate
+    def self.all_attributes_for(model)
+      
+    end
+  end
+end
+
+
+
+Factory::Generate.for(model)

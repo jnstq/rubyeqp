@@ -1,0 +1,5 @@
+Factory.define :<%= model_name.underscore %> do |<%= model_name.underscore.first %>|
+<% for column in columns -%>
+<%= "  #{model_name.downcase.first}.#{column.first} #{column.last}" %>
+<% end  -%>
+end
