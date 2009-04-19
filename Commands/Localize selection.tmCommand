@@ -8,20 +8,29 @@
 	<string>#!/usr/bin/env ruby
 require 'rubygems'
 require 'activesupport'
+
+$KCODE = "UTF8"
+default_locale = 'se'
+
 require ENV["TM_BUNDLE_SUPPORT"] + "/lib/text_mate"
 require ENV["TM_BUNDLE_SUPPORT"] + "/lib/translate_helper"
+require ENV["TM_BUNDLE_SUPPORT"] + "/lib/translator"
 
 selection = ARGF.read
 selection = selection[1..-1] if selection =~ /^('|")/
 selection = selection[0..-2] if selection =~ /('|")$/
 
-key = TextMate.input('Localize key', 'txt.' + selection.gsub(/\s/,'_').downcase)
+key_suggest = Translator.translate(selection, default_locale, 'en')
+
+key = TextMate.input('Localize key', 'txt.' + key_suggest.gsub(/\s/,'_').downcase)
 
 fail "No language files found in config/locales/site" if TranslateHelper::locales.empty?
 
 TranslateHelper::locales.each do |locale|
+  to = $1 if locale =~ /^([a-z]{2}).*?/
+  suggest = Translator.translate(selection, default_locale, to || 'en')
   th = TranslateHelper.new(locale)
-  text = TextMate.input("Add translation for #{locale}", selection)
+  text = TextMate.input("Add translation for #{locale}", suggest)
   th.add_translation(key, text) if text
 end
 
