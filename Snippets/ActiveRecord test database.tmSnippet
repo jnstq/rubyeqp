@@ -6,8 +6,10 @@
 	<string>ActiveRecord::Base.establish_connection(:adapter =&gt; 'sqlite3', :database =&gt; ':memory:')
 ActiveRecord::Migration.verbose = false
 
-ActiveRecord::Schema.define(:version =&gt; 0) do
-  create_table :updaters, :force =&gt; true do |t|
+ActiveRecord::Migration.suppress_messages do
+  ActiveRecord::Schema.define(:version =&gt; 0) do
+    create_table :updaters, :force =&gt; true do |t|
+    end
   end
 end</string>
 	<key>name</key>
