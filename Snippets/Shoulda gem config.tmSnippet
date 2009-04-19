@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>config.gem "thoughtbot-shoulda", :lib =&gt; "shoulda", :source =&gt; "http://gems.github.com"
+</string>
+	<key>name</key>
+	<string>Shoulda gem config</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>config.</string>
+	<key>uuid</key>
+	<string>B4D00018-ED83-4A72-9C68-4ADB1A4F6CBB</string>
+</dict>
+</plist>

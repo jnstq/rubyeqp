@@ -1,3 +1,4 @@
+require 'ya2yaml'
 class TranslateHelper
   attr_accessor :locale, :data
   def initialize(locale)
@@ -32,7 +33,7 @@ class TranslateHelper
     @data = File.open("#{locale_path}/#{@locale}.yml") {|f| YAML::load(f) }
   end
   def save_data
-    File.open("#{locale_path}/#{@locale}.yml", "w") { |f| YAML.dump(@data, f) }
+    File.open("#{locale_path}/#{@locale}.yml", "w") { |f| f.write(@data.ya2yaml) }
   end
   def locale_path
     self.class.locale_path
