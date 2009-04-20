@@ -9,7 +9,7 @@ class FactoryGirl
     def render_factory_for(model)
       model_name = model.name
       columns = model.columns_hash.map {|name, column| [name, value_for(column)] }
-      columns.reject! {|name, column| name =~ /id|updated_at|created_at/ }
+      columns.reject! {|name, column| name =~ /_id|updated_at|created_at/ }
       ERB.new(template(:factory), nil, "-").result(binding)
     end
     
