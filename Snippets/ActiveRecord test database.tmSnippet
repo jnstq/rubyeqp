@@ -3,15 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>ActiveRecord::Base.establish_connection(:adapter =&gt; 'sqlite3', :database =&gt; ':memory:')
+	<string>require 'rubygems'
+require 'activerecord'
+
+ActiveRecord::Base.establish_connection(:adapter =&gt; 'sqlite3', :database =&gt; ':memory:')
 ActiveRecord::Migration.verbose = false
 
 ActiveRecord::Migration.suppress_messages do
   ActiveRecord::Schema.define(:version =&gt; 0) do
-    create_table :updaters, :force =&gt; true do |t|
+    create_table :${1:users}, :force =&gt; true do |t|
     end
   end
-end</string>
+end
+
+class ${2:User} &lt; ActiveRecord::Base
+end
+
+obj = ${2:User}.new</string>
 	<key>name</key>
 	<string>ActiveRecord test database</string>
 	<key>tabTrigger</key>
